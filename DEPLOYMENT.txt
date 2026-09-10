@@ -1,0 +1,15 @@
+IBGLOBAL FASHION - DEPLOYMENT
+
+Recommended: deploy this repository as a Docker web service from GitHub using Render.
+The root Dockerfile builds the React storefront and the Express API into one service.
+The live URL opens directly to the storefront. The README is intentionally omitted.
+
+Required production secrets:
+ADMIN_PASSWORD
+JWT_SECRET (Render can generate this automatically)
+PAYSTACK_SECRET_KEY (only if card payments are enabled)
+PAYSTACK_PUBLIC_KEY (only if card payments are enabled)
+WEB_URL (the final public site URL)
+
+The SQLite database and uploaded images are stored under backend/data and backend/uploads.
+For production, attach persistent storage to those paths on the hosting provider.

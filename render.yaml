@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: ibglobal-fashion
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@ibglobalfashion.com
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: WHATSAPP_NUMBER
+        value: 2348028415621
+      - key: BANK_NAME
+        value: Opay
+      - key: BANK_ACCOUNT_NAME
+        value: Mohammed-Fahd Mohammed
+      - key: BANK_ACCOUNT_NUMBER
+        value: 8028415621
+      - key: WEB_URL
+        sync: false
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: UPLOAD_DIR
+        value: /app/backend/uploads
+    disk:
+      name: ibglobal-fashion-data
+      mountPath: /app/backend/data
+      sizeGB: 1

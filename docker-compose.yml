@@ -1,0 +1,10 @@
+services:
+  api:
+    build: ./backend
+    env_file: ./backend/.env
+    ports: ["5000:5000"]
+    volumes: ["./backend/data:/app/data","./backend/uploads:/app/uploads"]
+  web:
+    build: ./web
+    ports: ["8080:80"]
+    depends_on: [api]
